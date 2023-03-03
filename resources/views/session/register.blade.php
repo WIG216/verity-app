@@ -27,7 +27,7 @@
                     <div class="form-content">
 
                         <h1 class="">Register</h1>
-                        <p class="signup-link register">Already have an account? <a href="auth_login_boxed.html">Log
+                        <p class="signup-link register">Already have an account? <a href="/login">Log
                                 in</a></p>
                         <form class="text-left" method="POST" action="/register">
                             @csrf
@@ -102,26 +102,24 @@
                                             rx="2" ry="2"></rect>
                                         <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                                     </svg>
-                                    <input id="password" name="password_confirmation" type="password" class="form-control"
+                                    <input id="confirm-password" name="password_confirmation" type="password" class="form-control"
                                         placeholder="Confirm Password">
                                     @error('password-confirmation')
                                         <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                     @enderror
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" id="toggle-password"
+                                        stroke-linecap="round" stroke-linejoin="round" id="toggle-confirm-password"
                                         class="feather feather-eye">
                                         <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                                         <circle cx="12" cy="12" r="3"></circle>
                                     </svg>
                                 </div>
-
                                 <div class="field-wrapper terms_condition">
                                     <div class="n-chk">
                                         <label class="new-control new-checkbox checkbox-primary">
-                                            <span class="new-control-indicator"></span><span>I agree to the <a
-                                                    href="javascript:void(0);"> terms and conditions </a></span>
-                                            <input type="checkbox" class="new-control-input" name="t&c" value="1" checked>
+                                          <input type="checkbox" value="1" class="new-control-input" name="t&c">
+                                          <span class="new-control-indicator"></span><span>I agree to the <a href="javascript:void(0);">  terms and conditions </a></span>
                                         </label>
                                         @error('t&c')
                                             <p class="text-danger text-xs mt-2">{{ $message }}</p>

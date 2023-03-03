@@ -16,7 +16,7 @@ class SessionsController extends Controller
     public function authentication(Request $request)
     {
         $formFields = $request->validate([
-            'name' => ['required', 'name'],
+            'name' => 'required',
             'password' => 'required'
         ]);
 
@@ -24,10 +24,10 @@ class SessionsController extends Controller
         if(auth()->attempt($formFields, 'remember')){
             $request -> session()->regenerate();
 
-            return redirect('dashboard')->with(['success'=>'You are logged in.']);
+            return redirect('/')->with(['success'=>'You are logged in.']);
         }
 
-        return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
+        return back()->withErrors(['name' => 'Invalid Credentials'])->onlyInput('name');
     }
 
      // logout user

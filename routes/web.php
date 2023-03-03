@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ResetController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\ChangePasswordController;
-use App\Http\Controllers\ResetController;
 
 
 /*
@@ -17,6 +18,21 @@ use App\Http\Controllers\ResetController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+// Route::get('/dashboard', function (){
+//     return view('dashboard.dashboard');
+// });
+
+Route::group(['middleware' => 'auth'], function () {
+
+	Route::get('/', [HomeController::class, 'home']);
+    Route::get('dashboard', function () {
+		return view('dashboard.dashboard');
+	})->name('dashboard');
+
+	Route::get('/logout', [SessionsController::class, 'logout']);
+
+});
+
 
 Route::group(['middleware' => 'guest'], function () {
 	Route::get('/register', [RegisterController::class, 'create']);
