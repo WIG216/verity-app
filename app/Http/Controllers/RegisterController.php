@@ -35,6 +35,6 @@ class RegisterController extends Controller
         //login
         auth()->login($user);
 
-        return redirect('/dashboard')->with('message', 'User created successfully and loggin');
+        return redirect('/login')->with('message', 'User created successfully and loggin');
     }
 }
