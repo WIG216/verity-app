@@ -16,7 +16,7 @@ class SessionsController extends Controller
     public function authentication(Request $request)
     {
         $formFields = $request->validate([
-            'email' => ['required', 'email'],
+            'name' => ['required', 'name'],
             'password' => 'required'
         ]);
 
