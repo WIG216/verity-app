@@ -24,7 +24,7 @@ class SessionsController extends Controller
         if(auth()->attempt($formFields, 'remember')){
             $request -> session()->regenerate();
 
-            return redirect('/')->with(['success'=>'You are logged in.']);
+            return redirect('/dashboard')->with(['success'=>'You are logged in.']);
         }
 
         return back()->withErrors(['name' => 'Invalid Credentials'])->onlyInput('name');

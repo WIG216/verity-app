@@ -21,6 +21,13 @@ class StudentCertificate extends Model
         'guardian_name',
         'location',
         'emergency_number',
-        'img'
+        'img',
+        'user_id',
+        'class',
+        
     ];
+
+    public function user() {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

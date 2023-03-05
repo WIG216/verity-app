@@ -18,13 +18,14 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->date('dob');
-            $table->date('place_of_birth');
+            $table->string('place_of_birth');
             $table->string('email')->unique();
             $table->string('specialty');
+            $table->integer('class');
             $table->string('contact');
             $table->string('guardian_name');
             $table->string('location');
-            $table->integer('emergency_number');
+            $table->string('emergency_number');
             $table->string('img')->nullable();
             $table->timestamps();
         });

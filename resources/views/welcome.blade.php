@@ -39,7 +39,7 @@
             <ul class="navbar-nav theme-brand flex-row  text-center">
                 <li class="nav-item theme-logo">
                     <a href="index.html">
-                        <img src="assets/img/90x90.jpg" class="navbar-logo" alt="logo">
+                        <img src="assets/img/verity.png" class="navbar-logo" alt="logo">
                     </a>
                 </li>
                 <li class="nav-item theme-text">
@@ -59,9 +59,9 @@
                     <div class="dropdown-menu position-absolute" aria-labelledby="userProfileDropdown">
                         <div class="user-profile-section">
                             <div class="media mx-auto">
-                                <img src="assets/img/90x90.jpg" class="img-fluid mr-2" alt="avatar">
+                                <img src="assets/img/verity.png" class="img-fluid mr-2" alt="avatar">
                                 <div class="media-body">
-                                    <h5>Sonia Shaw</h5>
+                                    <h5>Sonia </h5>
                                     <p>Project Leader</p>
                                 </div>
                             </div>
