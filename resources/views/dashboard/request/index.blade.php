@@ -3,20 +3,16 @@
 @section('content')
     <div class="layout-px-spacing">
         <div class="row layout-top-spacing" id="cancel-row">
-            <a href="/certificates/students/create" class="btn btn-primary text-center non-hover bg-primary border-0 p-2 ml-2 my-2">Add Student</a>
             <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
                 <div class="widget-content widget-content-area br-6">
                     <table id="" class="table table-hover non-hover" style="width:100%">
                         <thead>
                             <tr>
-                                <th>Rgistration Number</th>
                                 <th>Name</th>
-                                <th>Address</th>
+                                <th>Email</th>
                                 <th>Contact</th>
-                                <th>Guard Name</th>
-                                <th>Date Of Birth</th>
-                                <th>Specialty</th>
-                                <th>Class</th>
+                                <th>Subject</th>
+                              
                                 <th>Image</th>
                                 <th class="dt-no-sorting">Action</th>
                             </tr>
@@ -24,21 +20,18 @@
                         <tbody>
                             @unless(count($studentCertificates) == 0)
                                 @foreach ($studentCertificates as $studentInfo)
-                                    @if ($studentInfo->user->id == auth()->user()->id)
+                                    
                                         <tr>
-                                            <td>{{ $studentInfo->registration_number }}</td>
-                                            <td>{{ $studentInfo->first_name }} {{ $studentInfo->last_name }}</td>
-                                            <td>{{ $studentInfo->location }}</td>
+                                            <td>{{ $studentInfo->name }}</td>
+                                            <td>{{ $studentInfo->email }}</td>
                                             <td>{{ $studentInfo->contact }}</td>
-                                            <td>{{ $studentInfo->guardian_name }}</td>
-                                            <td>{{ $studentInfo->dob }}</td>
-                                            <td>{{ $studentInfo->specialty }}</td>
-                                            <td>{{ $studentInfo->class }}</td>
+                                            <td>{{ $studentInfo->subject }}</td>
+
                                             <td>
                                                 <div class="d-flex">
                                                     <div class="usr-img-frame mr-2 rounded-circle">
                                                         <img alt="avatar" class="img-fluid rounded-circle"
-                                                            src="{{ $studentInfo->img ? asset('storage/' . $studentInfo->img) : asset('/img/90x90.jpg') }}">
+                                                            src="{{ $studentInfo->file ? asset('storage/' . $studentInfo->file) : asset('/img/90x90.jpg') }}">
                                                     </div>
                                                 </div>
                                             </td>
@@ -69,10 +62,10 @@
                                             </td>
                                         </tr>
                                         {{-- <x-student-table :studentInfo= "$studentInfo" /> --}}
-                                    @endif
+                                    
                                 @endforeach
                             @else
-                                <p>No certificate issued.</p>
+                                <p>No Request present.</p>
                             @endunless
                         </tbody>
                     </table>
@@ -81,42 +74,5 @@
         </div>
     </div>
 
-    <script>
-        // function deleteData(studentInfo){
-
-        //     Swal.fire({
-        //             title: 'Are you sure?',
-        //             text: "You won't be able to revert this!",
-        //             icon: 'warning',
-        //             showCancelButton: true,
-        //             confirmButtonColor: '#3085d6',
-        //             cancelButtonColor: '#d33',
-        //             confirmButtonText: 'Yes, delete it!'
-        //         }).then((result) => {
-        //             if (result.isConfirmed) {
-        //                 let url = "{{"students/$studentInfo->id/delete"}}"
-        //                 url = url.replace(`studentInfo->id`, studentInfo.id)
-
-        //                 $.ajax({
-        //                     type: 'POST'
-        //                     url: url,
-        //                     data: {
-        //                         '_method': 'DELETE',
-        //                         '_token': '{{csrf_token()}}'
-        //                     },
-        //                     success: function(){
-        //                         Swal.fire(
-        //                     'Deleted!',
-        //                     'Your file has been deleted.',
-        //                     'success'
-        //                 )
-        //                     }
-        //                 })
-
-                        
-        //             }
-        //         })
-        // }
-    </script>
 @endsection
 

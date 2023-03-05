@@ -122,6 +122,35 @@
                     </svg><span>Session Pages</span></div>
             </li>
 
+            <li class="menu {{ (Request::is('/visitor/request') ? 'active' : '') }}">
+                <a href="#visitor" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="feather feather-lock">
+                            <rect x="3" y="11" width="18" height="11" rx="2"
+                                ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                        <span>Visitor</span>
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="feather feather-chevron-right">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </div>
+                </a>
+                <ul class="collapse submenu list-unstyled" id="visitor" data-parent="#accordionExample">
+                    <li class="{{ (Request::is('/visitor/request') ? 'active' : '') }}">
+                        <a href="/visitor/request" > Request </a>
+                    </li>
+
+                </ul>
+            </li>
+
+
             <li class="menu {{ (Request::is('logout') ? 'active' : '') }}">
                 <a href="#authentication" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <div class="">

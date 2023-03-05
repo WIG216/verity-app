@@ -9,7 +9,8 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\StudentCertificateController;
-
+use App\Http\Controllers\VisitorRequestController;
+use App\Models\VisitorRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,8 +43,9 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('/certificates/students/{studentCertificateInfo}', [StudentCertificateController::class, 'update']);
 	Route::get('/certificates/students/{studentCertificateInfo}/delete', [StudentCertificateController::class, 'destroy']);
 	Route::get('/certificates/students/{studentCertificateInfo}/show', [StudentCertificateController::class, 'show']);
+	Route::get('/visitor/request', [VisitorRequestController::class, 'index']);
 
-    Route::get('export-pdf', [PdfExport::class, 'pdf']);
+    Route::get('certificates/students/{studentCertificateInfo}/export', [PdfExport::class, 'pdf']);
 });
 
 
@@ -63,3 +65,5 @@ Route::get('/login', function () {
 })->name('login');
 
 Route::get('/visitor', [VisitorController::class, 'index']);
+Route::post('/visitor/request', [VisitorRequestController::class, 'store']);
+

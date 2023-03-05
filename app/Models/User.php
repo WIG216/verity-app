@@ -46,4 +46,7 @@ class User extends Authenticatable
     public function studentCertificateInfo() {
         return $this->hasMany(StudentCertificate::class, 'user_id');
     }
+    // public function visitorRequest() {
+    //     return $this->hasMany(VisitorRequest::class, 'user_id');
+    // }
 }

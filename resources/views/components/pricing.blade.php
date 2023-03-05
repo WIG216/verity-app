@@ -1,7 +1,7 @@
 <section id="contact" class="contact">
     <div class="container" data-aos="fade-up">
 
-      {{-- <div class="section-title">
+        {{-- <div class="section-title">
         <h2>Pricing</h2>
         <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
       </div>
@@ -55,45 +55,48 @@
 
       </div> --}}
 
-      <form action="/verify" method="post" role="form" class="php-email-form" enctype="multipart/formdata">
-        @csrf
-        <div class="row">
-            <div class="form-group col-md-6">
-                <label for="name">Your Name</label>
-                <input type="text" name="name" class="form-control" id="name" required>
+        <form action="/visitor/request" method="POST" class="php-email-form" enctype="multipart/formdata">
+            @csrf
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="name">Your Name</label>
+                    <input type="text" name="name" class="form-control" id="name">
+                    @error('name')
+                    <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                @enderror
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="email">Your Email</label>
+                    <input type="email" class="form-control" name="email" id="email">
+                    @error('email')
+                        <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                    @enderror
+                </div>
             </div>
-            <div class="form-group col-md-6">
-                <label for="name">Your Email</label>
-                <input type="email" class="form-control" name="email" id="email" required>
-                @error('email')
-                <p class="text-danger text-xs mt-2">{{ $message }}</p>
-            @enderror
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" class="form-control" name="subject" id="subject">
+                @error('subject')
+                    <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                @enderror
             </div>
-        </div>
-        <div class="form-group">
-            <label for="name">Subject</label>
-            <input type="text" class="form-control" name="subject" id="subject" required>
-            @error('subject')
-            <p class="text-danger text-xs mt-2">{{ $message }}</p>
-        @enderror
-        </div>
-        <div class="form-group">
-            <label for="name">Mobile Number</label>
-            <input type="tel" class="form-control" name="phone" id="subject" required>
-            @error('phone')
-            <p class="text-danger text-xs mt-2">{{ $message }}</p>
-        @enderror
-        </div>
-        <div class="form-group">
-            <label for="name">File</label>
-            <input type="file" class="form-control" name="file" id="subject" required>
-            @error('file')
-            <p class="text-danger text-xs mt-2">{{ $message }}</p>
-        @enderror
-        </div>
-       
-        <div class="text-center"><button type="submit">Send Message</button></div>
-    </form>
+            <div class="form-group">
+                <label for="contact">Mobile Number</label>
+                <input type="tel" class="form-control" name="contact" id="contact">
+                @error('contact')
+                    <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label for="name">File</label>
+                <input type="file" class="form-control" name="file" id="file">
+                @error('file')
+                    <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="text-center"><button type="submit">Send Message</button></div>
+        </form>
 
     </div>
-  </section>
+</section>
